@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: ;
+}
+
+/* Add padding to containers */
+
+ul{
+  list-style: none;
+  
+}
+li{
+  padding: 2px 10px;
+}
+input{
+  height: 30px;
+  width: 100%;
+  border-style: none;
+  border-bottom:1px solid black ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+.container{
+  width: 65%;
+  height: auto;
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(212, 212, 212);
+}
+.heading{
+  /* background-color: red; */
+}
+.input-fields{
+  /* background-color: green; */
+}
+.submit{
+  /* background-color: yellow; */
+  display: flex;
+}
