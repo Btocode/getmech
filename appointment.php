@@ -1,10 +1,6 @@
 <?php 
 
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "getmech";
-$conn = mysqli_connect($server, $username, $password, $dbname );
+include_once('Assets/config/config.php');
 
 if(isset($_POST['submit'])){
   //Button Clicked
@@ -24,17 +20,6 @@ if(isset($_POST['submit'])){
 
   $run = mysqli_query($conn,$query) ;
 
-  if($run){
-    echo "data pushed successfully ";
-  }
-  else{
-    echo "data not pushed";
-  }
-
-}
-else{
-  //Button not clicked
-  echo "All fields required";
 }
 ?>
 
