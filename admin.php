@@ -54,7 +54,7 @@ error_reporting(0);
           <td>".$rows['phoneNumber']."</td>
           <td>".$rows['carLicenseNumber']."</td>
           <td>".$rows['carEngineNumber']."</td>
-          <td>".$rows['dateOfAppointment']." <a href = '#'> change date</a></td>
+          <td>".$rows['dateOfAppointment']." <a href = 'update.php?rn=$rows[regNo]'> Change</a></td>
           <td>".$rows['mechName']."</td>
           <td><a href = 'delete.php?cl=$rows[regNo]'>Delete</a></td>
         </tr>

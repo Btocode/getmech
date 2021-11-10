@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
   $run = mysqli_query($conn,$query) ;
   }
   else{
-    echo "All fields are required";
+    // echo "All fields are required";
   }
 }
 ?>
