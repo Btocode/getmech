@@ -1,9 +1,12 @@
 <?php 
 include_once('Assets/config/config.php');
+error_reporting(0);
 
   $query = "select * from appointment_list";
 
   $run = mysqli_query($conn,$query) ;
+
+  
 
 ?>
 
@@ -37,24 +40,28 @@ include_once('Assets/config/config.php');
         <th>Engine Number</th>
         <th>Date</th>
         <th>Mechanic Name</th>
+        <th>Operations</th>
       </t>
       <?php
       while ($rows = mysqli_fetch_assoc($run)) {
         # code...
 
-        ?>
+        echo "
         <tr>
-          <td><?php echo $rows['regNo'];?></td>
-          <td><?php echo $rows['fullName'];?></td>
-          <td><?php echo $rows['address'];?></td>
-          <td><?php echo $rows['phoneNumber'];?></td>
-          <td><?php echo $rows['carLicenseNumber'];?></td>
-          <td><?php echo $rows['carEngineNumber'];?></td>
-          <td><?php echo $rows['dateOfAppointment'];?></td>
-          <td><?php echo $rows['mechName']?></td>
+          <td>".$rows['regNo']."</td>
+          <td>".$rows['fullName']."</td>
+          <td>".$rows['address']."</td>
+          <td>".$rows['phoneNumber']."</td>
+          <td>".$rows['carLicenseNumber']."</td>
+          <td>".$rows['carEngineNumber']."</td>
+          <td>".$rows['dateOfAppointment']." <a href = '#'> change date</a></td>
+          <td>".$rows['mechName']."</td>
+          <td><a href = 'delete.php?cl=$rows[regNo]'>Delete</a></td>
         </tr>
-        <?php
+        ";
+       
       }
+
       ?>
       </table>
       </div>

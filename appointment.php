@@ -4,6 +4,7 @@ include_once('Assets/config/config.php');
 
 if(isset($_POST['submit'])){
   //Button Clicked
+
   
   $user = $_POST['username'];
   $address = $_POST['address'];
@@ -15,11 +16,16 @@ if(isset($_POST['submit'])){
 
   $mechname = $_POST['mechanic'];
   
-  
+  if ($user!="" && $license!="" && $engine != "" && $date != "" && $mechname != "") {
+    # code...
+
   $query = "insert into appointment_list(fullName,address,phoneNumber,carLicenseNumber, carEngineNumber, dateOfAppointment,mechName) values('$user', '$address','$phone', '$license','$engine','$date','$mechname')";
 
   $run = mysqli_query($conn,$query) ;
-
+  }
+  else{
+    echo "All fields are required";
+  }
 }
 ?>
 
@@ -43,28 +49,28 @@ if(isset($_POST['submit'])){
       <div class="personal-info">
         <ul>
           <li><h2>Personal Details</h2></li>
-          <li><input name = "username"type="text" placeholder="Full Name"></li>
-          <li><input name = "address" type="text" placeholder="Address"></li>
-          <li><input name = "phone" type="text" placeholder="Phone Number"></li>
+          <li><input name = "username"type="text" placeholder="Full Name" required></li>
+          <li><input name = "address" type="text" placeholder="Address" required></li>
+          <li><input name = "phone" type="text" placeholder="Phone Number" required></li>
         </ul>
       </div>
       <div class="car-info">
         <ul>
           <li><h2>Car Details</h2></li>
-          <li><input name = 'licenseNumber'  type="text" placeholder="Car License Number"></li>
-          <li><input name = 'engineNumber' type="text" placeholder="Car Engine Number"></li>
+          <li><input name = 'licenseNumber'  type="text" placeholder="Car License Number" required></li>
+          <li><input name = 'engineNumber' type="text" placeholder="Car Engine Number" required></li>
         </ul>
       </div>
       <div class="booking-info">
         <ul>
           <li><h2>Booking Info</h2></li>
-          <li><input type="date" name="date" id=""></li>
+          <li><input type="date" name="date" id="" required></li>
           <li>
-          <select name="mechanic" id="">
-            <option value="">Mr X</option>
-            <option value="">Mr y</option>
-            <option value="">Mr z</option>
-            <option value="">Mr p</option>
+          <select name="mechanic" id="" required>
+            <option value="Mr X"></option>
+            <option value="Mr Y">Mr y</option>
+            <option value="Mr Z">Mr z</option>
+            <option value="Mr P">Mr p</option>
           </select>
         </li>
         </ul>
