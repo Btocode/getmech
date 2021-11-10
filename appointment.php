@@ -59,12 +59,14 @@ if(isset($_POST['submit'])){
         <ul>
           <li><h2>Booking Info</h2></li>
           <li><input type="date" name="date" id=""></li>
-          <li><select name="mechanic" id="">
+          <li>
+          <select name="mechanic" id="">
             <option value="">Mr X</option>
             <option value="">Mr y</option>
             <option value="">Mr z</option>
             <option value="">Mr p</option>
-          </select></li>
+          </select>
+        </li>
         </ul>
       </div>
     </div>
