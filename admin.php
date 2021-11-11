@@ -18,6 +18,7 @@ error_reporting(0);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/Assets/css/admin.css">
 </head>
@@ -29,7 +30,7 @@ error_reporting(0);
   <main>
     <div class="container">
       <div class="subcontainer">
-        <table align="center" border="1px" style="width: 70%; line-height: 15px;">
+      <table align="center" border="1px" style="width:75%; line-height = 20px; text-align:center">
           <tr>
             <th colspan="12">
               <h4>Appointment List</h4>
@@ -61,27 +62,27 @@ error_reporting(0);
             <td><?php echo $rows["carLicenseNumber"];?></td>
             <td><?php echo $rows["carEngineNumber"];?></td>
             <td><?php echo $rows["dateOfAppointment"];?>
-              <?php echo " <a href='update.php?rn=$rows[regNo]'> Change</a>";?>
+              <?php echo " <a href='update.php?rn=$rows[regNo]'> <i class='fas fa-exchange-alt'></i></a>";?>
             </td>
             <td><?php
             if ($rows['mechName'] == 1) {
               # code...
-                echo "Jack Ma";
+                echo "Jack Ma <a href='swap.php?rn=$rows[regNo]'><i class='fas fa-exchange-alt'></i></a>";
             }
             elseif($rows['mechName'] == 2){
-              echo "Jeff Bezos";
+              echo "Jeff Bezos <a href='swap.php?rn=$rows[regNo]'><i class='fas fa-exchange-alt'></i></a>";
             }
             elseif($rows['mechName'] == 3){
-              echo "Linus Torvals";
+              echo "Linus Torvals <a href='swap.php?rn=$rows[regNo]'><i class='fas fa-exchange-alt'></i></a>";
             }
             else{
-              echo "Mark Zuckerburg"; 
+              echo "Mark Zuckerburg <a href='swap.php?rn=$rows[regNo]'><i class='fas fa-exchange-alt'></i></a>";
             }
             
             
             ?></td>
             <?php echo "
-            <td><a href='delete.php?cl=$rows[regNo]'>Delete</a></td>
+            <td><a href='delete.php?cl=$rows[regNo]'><i class='fas fa-trash-alt'></i></a></td>
             ";
             ?>
 
