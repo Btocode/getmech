@@ -15,25 +15,40 @@ $mechId = mysqli_query($conn, $sql0);
 $mechId1 = mysqli_fetch_assoc($mechId);
 $temp = $mechId1[mechName];
 
+
+
 if (isset($_POST['submit'])) {
 
   $mechanic = $_POST["mechanic"];
 
-$query = "UPDATE `appointment_list` SET mechName = '$mechanic' WHERE regNo = $regNo";
-$res = $conn -> query($query);
-
-$sql2 = "UPDATE mechanic_list SET orders = orders + 1 WHERE id = $mechanic";
-mysqli_query($conn, $sql2);
-
-// Decresing Number of orders on change
-$sql1 = "UPDATE mechanic_list SET orders = orders - 1 WHERE id = $temp";
-mysqli_query($conn, $sql1);
+  // Previous orders
+$sqlt="SELECT orders FROM `mechanic_list` WHERE id = $mechanic";
+$no_of_orders = mysqli_query($conn,$sqlt);
+$norders = mysqli_fetch_assoc($no_of_orders);
 
 
-if ($res) {
-  # code...
-  header("Refresh:0; url=admin.php");
-}
+  if ($norders[orders] < 4) {
+    $query = "UPDATE `appointment_list` SET mechName = '$mechanic' WHERE regNo = $regNo";
+    $res = $conn -> query($query);
+    
+    
+    $sql2 = "UPDATE mechanic_list SET orders = orders + 1 WHERE id = $mechanic";
+    mysqli_query($conn, $sql2);
+    
+    // Decresing Number of orders on change
+    $sql1 = "UPDATE mechanic_list SET orders = orders - 1 WHERE id = $temp";
+    mysqli_query($conn, $sql1);
+    
+    
+    if ($res) {
+      # code...
+      header("Refresh:0; url=admin.php");
+    }
+  }
+  else{
+    echo '<script>alert("This user does not have any free slot, please select other users or wait till he become free.")</script>';
+  }
+
 
 }
 
@@ -59,7 +74,7 @@ if ($res) {
                   $data,MYSQLI_ASSOC)){
 
                   echo "
-                <option style = value = ".$names['id']."> ".$names['name']." </option>
+                <option value = ".$names['id']."> ".$names['name']." </option>
               
               ";
               }
