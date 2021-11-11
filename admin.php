@@ -47,25 +47,49 @@ error_reporting(0);
             <th>Operations</th>
           </t>
           <?php
-      while ($rows = mysqli_fetch_assoc($run)) {
+      while ($rows = mysqli_fetch_assoc($run)):
         # code...
+        ?>
 
-        echo "
-        <tr>
-          <td>".$rows['regNo']."</td>
-          <td>".$rows['fullName']."</td>
-          <td>".$rows['address']."</td>
-          <td>".$rows['phoneNumber']."</td>
-          <td>".$rows['carLicenseNumber']."</td>
-          <td>".$rows['carEngineNumber']."</td>
-          <td>".$rows['dateOfAppointment']." <a href = 'update.php?rn=$rows[regNo]'> Change</a></td>
-          <td>".$rows['mechName']."</td>
-          <td><a href = 'delete.php?cl=$rows[regNo]'>Delete</a></td>
-        </tr>
-        ";
-       
-      }
+          <tr>
 
+
+            <td><?php echo $rows["regNo"];?></td>
+            <td><?php echo $rows["fullName"];?></td>
+            <td><?php echo $rows["address"];?></td>
+            <td><?php echo $rows["phoneNumber"];?></td>
+            <td><?php echo $rows["carLicenseNumber"];?></td>
+            <td><?php echo $rows["carEngineNumber"];?></td>
+            <td><?php echo $rows["dateOfAppointment"];?>
+              <?php echo " <a href='update.php?rn=$rows[regNo]'> Change</a>";?>
+            </td>
+            <td><?php
+            if ($rows['mechName'] == 1) {
+              # code...
+                echo "Jack Ma";
+            }
+            elseif($rows['mechName'] == 2){
+              echo "Jeff Bezos";
+            }
+            elseif($rows['mechName'] == 3){
+              echo "Linus Torvals";
+            }
+            else{
+              echo "Mark Zuckerburg"; 
+            }
+            
+            
+            ?></td>
+            <?php echo "
+            <td><a href='delete.php?cl=$rows[regNo]'>Delete</a></td>
+            ";
+            ?>
+
+          </tr>
+
+
+          <?php
+      endwhile;
       ?>
         </table>
       </div>

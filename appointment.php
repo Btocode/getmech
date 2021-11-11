@@ -2,6 +2,9 @@
 
 include_once('Assets/config/config.php');
 
+$names = "SELECT * FROM `mechanic_list`";
+$data = mysqli_query($conn,$names);
+
 if(isset($_POST['submit'])){
   //Button Clicked
 
@@ -14,8 +17,6 @@ if(isset($_POST['submit'])){
   $engine = $_POST['engineNumber'];
   $date = $_POST['date'];
 
-  $names = "SELECT * FROM `mechanic_list`";
-  $data = mysqli_query($conn,$names) ;
   
   $mechname = $_POST['mechanic'];
   if ($user!="" && $license!="" && $engine != "" && $date != "" && $mechname != "") {
@@ -78,20 +79,15 @@ if(isset($_POST['submit'])){
             <li>
               <select name="mechanic" id="" required>
                 <?php
-                while ($names = mysqli_fetch_assoc($data)) {
-                  # code...
+                while ($names = mysqli_fetch_array(
+                  $data,MYSQLI_ASSOC)){
 
                   echo "
-                  <option>".$names['name']."</option>
-                  <option value = ".$names['name'].">Mr z</option>
-                  <option value = ".$names['name'].">Someone</option>
-                  <option value = ".$names['name'].">Mr p</option>
-                  
-                  ";
-                }
-                
-                ?>
-
+                <option value = ".$names['id']."> ".$names['name']." </option>
+              
+              ";
+              }
+              ?>
               </select>
             </li>
           </ul>

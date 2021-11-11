@@ -29,6 +29,7 @@ $res = $conn -> query($query);
           <th colspan="12">List of Mechanics</th>
         </tr>
         <tr>
+          <th>ID</th>
           <th>Name of Mechanic</th>
           <th>No. of orders </th>
         </tr>
@@ -38,6 +39,7 @@ $res = $conn -> query($query);
           # code...
           echo "
               <tr>
+              <td>".$data['id']."</td>
               <td>".$data['name']."</td>
               <td>".$data['orders']."</td>
               </tr>
