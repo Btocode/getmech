@@ -1,7 +1,7 @@
 <?php 
 include_once('Assets/config/config.php');
 error_reporting(0);
-
+// Selecting AppointMent List from the database
   $query = "select * from appointment_list";
 
   $run = mysqli_query($conn,$query) ;

@@ -1,7 +1,7 @@
 <?php
 include_once('Assets/config/config.php');
 error_reporting(0);
-
+// Selecting Mechanic List from the Database
 $query = "SELECT * FROM `mechanic_list`";
 $res = $conn -> query($query);  
 

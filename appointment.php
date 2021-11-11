@@ -2,33 +2,51 @@
 
 include_once('Assets/config/config.php');
 
+// Selecting Mechanic List from the database.
 $names = "SELECT * FROM `mechanic_list`";
 $data = mysqli_query($conn,$names);
 
+// Taking action after submit button press.
 if(isset($_POST['submit'])){
   //Button Clicked
-
+  error_reporting(0);
   
+  // Retriving user info from the webpage.
   $user = $_POST['username'];
   $address = $_POST['address'];
-
   $phone = $_POST['phone'];
   $license = $_POST['licenseNumber'];
   $engine = $_POST['engineNumber'];
   $date = $_POST['date'];
+  $mechname = $_POST['mechanic'];
 
   
-  $mechname = $_POST['mechanic'];
-  if ($user!="" && $license!="" && $engine != "" && $date != "" && $mechname != "") {
+  // Selecting Mechanic List from the database
+  $sql2="SELECT orders FROM `mechanic_list` WHERE id = $mechname";
+  $no_of_orders = mysqli_query($conn,$sql2);
+  $norders = mysqli_fetch_assoc($no_of_orders);
+
+  // Checking number of pending orders of a mechanic.
+  if ($norders[orders] < 4) {
     # code...
-
-  $query = "insert into appointment_list(fullName,address,phoneNumber,carLicenseNumber, carEngineNumber, dateOfAppointment,mechName) values('$user', '$address','$phone', '$license','$engine','$date','$mechname')";
-
-  $run = mysqli_query($conn,$query) ;
+    $sq1 = "UPDATE mechanic_list SET orders = orders + 1 WHERE id = $mechname";
+    mysqli_query($conn,$sq1);
+    
+    // Checking for any empty field given by user
+    if ($user!="" && $license!="" && $engine != "" && $date != "" && $mechname != "") {
+    $query = "insert into appointment_list(fullName,address,phoneNumber,carLicenseNumber, carEngineNumber, dateOfAppointment,mechName) values('$user', '$address','$phone', '$license','$engine','$date','$mechname')";
+  
+    $run = mysqli_query($conn,$query) ;
+    }
+    else{
+      // echo "All fields are required";
+    }
   }
   else{
-    // echo "All fields are required";
+    echo "this mechanic is booked";
   }
+  
+
 }
 ?>
 
