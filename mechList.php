@@ -19,12 +19,12 @@ $res = $conn -> query($query);
   <link rel="stylesheet" href="/Assets/css/admin.css">
 </head>
 
-<body>
+<body style = "background-color:#0f4c5c;">
   <form action="" method="POST">
 
-    <div class="contents">
+    <div class="contents" style = "margin-top:100px">
 
-      <table align="center" border="1px" style="width:60%; line-height = 20px; text-align:center">
+      <table align="center" border="1px" style="width:60%; line-height = 25px; text-align:center;color:white;font-size:25px">
         <tr>
           <th colspan="12">List of Mechanics</th>
         </tr>

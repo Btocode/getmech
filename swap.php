@@ -49,23 +49,23 @@ if ($res) {
   <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/Assets/css/admin.css">
 </head>
-<body>
+<body style = "background-color:#0f4c5c;display:flex;justify-content:center">
   <form action="" method = "POST">
-  <div class="contents">
-    <h3>Assign a new Mechanic for <?php echo $name ?> </h3>
-    <select name="mechanic" id="" required>
+  <div class="contents" style = "display:flex; flex-direction:column;height:400px;width:100%;justify-content:center;align-items:center">
+    <h3 style = "text-align:center;color:#EDF0F1;font-size:32px">Assign a new Mechanic <?php echo $name ?> </h3>
+    <select name="mechanic" id="" style = "width:100%;height:30px;margin-bottom:15px; font-size:20px; background-color:#a9d3e0" required>
       <?php
                 while ($names = mysqli_fetch_array(
                   $data,MYSQLI_ASSOC)){
 
                   echo "
-                <option value = ".$names['id']."> ".$names['name']." </option>
+                <option style = value = ".$names['id']."> ".$names['name']." </option>
               
               ";
               }
       ?>
     </select>
-    <button type = "submit" name = "submit"  >Update</button>
+    <button type = "submit" name = "submit"  style = "height:35px;width:100px ;cursor:pointer"  >Update</button>
   </div>
   </form>
 </body>

@@ -1,0 +1,263 @@
+* {box-sizing: border-box}*{
+  box-sizing: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+li, a, button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #a9d3e0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+
+/* Navbar */
+.sticky{
+  display: flex;
+  background-color: #0f4c5c;
+}
+.nav-container{
+  display: flex;
+  justify-content: right;
+  height: 80px;
+  width: 80%;
+  opacity: 1;
+
+}
+.menu-container{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.nav-links {
+  list-style: none;
+  
+}
+
+.nav-links li {
+  display: inline-block;
+  min-height: 10px;
+  min-width: 60px;
+  margin: 0 20px;
+  padding: 9px 25px;
+  border: 1px solid #0f4c5c;
+  border-radius: 50px;
+  
+}
+
+.nav-links li a {
+  padding: 5px 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(223, 223, 223);
+}
+
+.nav-links li:hover{
+  cursor: pointer;
+  border: 1px solid rgba(0, 136, 169, 1);
+}
+.nav-links li a:hover {
+  color: #f1f1f1;
+}
+.active{
+  margin: 0 20px;
+  padding: 9px 25px;
+  background-color: rgb(19, 68, 80);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.mylogo{
+height: 80px;
+width: 15%;
+}
+.mylogo img{
+  height: auto;
+  width: auto;
+  float: right;
+}
+
+.app{
+  margin: 0 20px;
+  padding: 9px 25px;
+  background-color: rgb(194, 53, 81);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.app:hover{
+  margin: 0 20px;
+  padding: 9px 25px;
+  background-color: rgb(65, 80, 74);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+
+/* Main */
+.container{
+  min-height: 650px;
+  width: 100%;
+  background: linear-gradient(270deg, rgb(118, 184, 188) 50%, rgb(255, 255, 255) 42%);
+}
+.content{
+  position: relative;
+  top: 200px;
+  height: 450px;
+ 
+}
+.content .vector-container{
+  height: 400px;
+  width: 40%;
+  float: right;
+ 
+}
+
+.content .vector-container img{
+  height: 450px;
+}
+
+.content .txt-container{
+  height: 200px;
+  width: 30%;
+  float: left;
+  margin-left: 10%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content .txt-container h1{
+  font-family: "Montserrat", sans-serif;
+  color: #0d4c61;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: left;
+  padding: 10px 10px;
+}
+.content .txt-container h2{
+font-family: "Montserrat", sans-serif;
+color: #2f7288;
+text-transform: uppercase;
+font-size: 50px;
+text-align: left;
+padding: 10px 10px;
+}
+.content .txt-container p{
+  font-family: "Montserrat", sans-serif;
+  color: crimson;
+  font-size: 20px;
+  margin-left: 0px;
+  padding: 15px;
+}
+
+.content .txt-container button{
+width: 200px;
+padding: 10px;
+font-weight: bold;
+margin-left: 10px;
+}
+.txt-container form button{
+margin: 0 5px;
+padding: 9px 17px;
+background-color: crimson;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease 0s;
+font-family: "Montserrat", sans-serif;
+font-weight: 500;
+font-size: 16px;
+color: #EDF0F1;
+text-decoration: none;
+}
+.txt-container button:hover{
+  
+  background-color: rgb(65, 80, 74);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+
+/* Team Section */
+
+.mechanics{
+  background-color: #414242;
+  padding: 100px 200px;
+  width: 100%;
+}
+.sec-title{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.sec-title h2{
+  font-size: 32px;
+  color: #EDF0F1;
+}
+.mec-container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 30px;
+}
+.card{
+  background-color: #fff;
+  border-radius: 30px;
+}
+.img-text-container{
+  margin-top: 10px;
+  text-align: center;
+  padding:1.2rem;
+}
+.avatar{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid crimson;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.name{
+  margin-top: 50px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+}
+.job{
+  margin-top: 5px;
+  text-transform: uppercase;
+  color: crimson;
+  font-size: 12px;
+  font-weight: 500;
+}
+.desc{
+  margin-top: 50px;
+}
+
+
+/* Footer  */
+.footer{
+  width: 100%;
+  background-color: #0f4c5c;
+  min-height: 60px;
+  bottom:0;
+}
+
+.fo-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+.fo-content p{
+  font-size: 18px;
+  color: #edf7fa;
+  margin-top: 10px;
+}
+

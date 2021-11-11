@@ -20,17 +20,34 @@ error_reporting(0);
   <title>Document</title>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/Assets/css/admin.css">
 </head>
 
-<body>
-  <header>
+<body style = "background-color:#0f4c5c;color:white;">
+<header class="sticky">
+    <div class="mylogo">
+      <img src="/Assets/getmech (200 x 80 px).png" alt="" srcset="">
+    </div>
+    <div class="nav-container">
+      <div class="menu-container" style="display: flex;">
 
+        <div class="nav-items">
+          <nav>
+            <ul class="nav-links" style = "list-style:none">
+              <li class="active"><a href="./index.html">Home</a></li>
+              <li><a href="">Log In</a></li>
+              <li class="app"><a href="/appointment.php">Get Appointment</a></li>
+
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
   </header>
   <main>
     <div class="container">
       <div class="subcontainer">
-      <table align="center" border="1px" style="width:75%; line-height = 20px; text-align:center">
+      <table align="center" border="1px" style="width:90%; line-height = 20px; text-align:center; font-size:20px" >
           <tr>
             <th colspan="12">
               <h4>Appointment List</h4>

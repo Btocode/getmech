@@ -3,22 +3,30 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "getmech";
 $conn = mysqli_connect($server, $username, $password, $dbname );
+error_reporting(0);
 
 if(isset($_POST['submit'])){
   //Button Clicked
   
-  $email = $_POST['email'];
+  $usrname = $_POST['email'];
   $pass = $_POST['psw'];
   
-  $query = "insert into tester(email,password) values('$email', '$pass')";
+  $query = "SELECT * FROM admin WHERE username = $usrname AND password = $pass";
   $run = mysqli_query($conn,$query) or die(mysqli_error());
-  if($run){
-    echo "data pushed successfully ";
+  $data = mysqli_num_rows($run);
+
+  if ($data == 1) {
+    # code...
+    // $_SESSION['login'] = "<p>Login success</>";
+    // // Redirect to admin.php
+    // header('location:'.SITEURL.'/admin.php');
+    echo "success";
   }
-  else{
-    echo "data not pushed";
+
+  else {
+    echo "login failed";
   }
 
 }
@@ -38,32 +46,27 @@ else{
   <title>Login Here</title>
   <link rel="stylesheet" href="./Assets/css/login.css">
 </head>
-<body>
+<body style = "background-color:#0f4c5c;color:white;text-align:center">
   <!-- Header -->
 
 
   <!-- Main -->
   <form action="#" method = "POST">
-    <div class="container">
+    <div class="container" >
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <label for="email"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="email" id="email" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
     <hr>
-
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" name = "submit" class="registerbtn">Register</button>
+    <button type="submit" name = "submit" class="registerbtn">Login</button>
     </div>
 
-    <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-    </div>
   </form>
  
 

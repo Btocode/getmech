@@ -2,10 +2,13 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font-family: ;
 }
 
 /* Add padding to containers */
+body{
+  background-color: #86124c;
+  
+}
 
 ul{
   list-style: none;
@@ -18,18 +21,18 @@ input{
   height: 30px;
   width: 100%;
   border-style: none;
-  border-bottom:1px solid black ;
+  border-bottom:1px solid rgb(138, 5, 5) ;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
 
 .container{
-  width: 65%;
+  width: 100%;
   height: auto;
   margin: auto;
   padding: 20px;
-  background-color: rgb(212, 212, 212);
+  background-color: #0f4c5c;
 }
 .heading{
   /* background-color: red; */

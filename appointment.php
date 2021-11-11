@@ -5,6 +5,7 @@ include_once('Assets/config/config.php');
 // Selecting Mechanic List from the database.
 $names = "SELECT * FROM `mechanic_list`";
 $data = mysqli_query($conn,$names);
+$mssg = "";
 
 // Taking action after submit button press.
 if(isset($_POST['submit'])){
@@ -19,6 +20,7 @@ if(isset($_POST['submit'])){
   $engine = $_POST['engineNumber'];
   $date = $_POST['date'];
   $mechname = $_POST['mechanic'];
+  
 
   
   // Selecting Mechanic List from the database
@@ -43,7 +45,7 @@ if(isset($_POST['submit'])){
     }
   }
   else{
-    echo "this mechanic is booked";
+    $mssg =  "This mechanic does not have any empty slot.";
   }
   
 
@@ -53,7 +55,6 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,11 +63,11 @@ if(isset($_POST['submit'])){
   <link rel="stylesheet" href="./Assets/css/appointment.css">
 </head>
 
-<body>
+<body style = "background-color:#0f4c5c;color:white;">
   <form action="#" method="POST">
-    <div class="container">
+    <div class="container" style ="width:80%;margin-top:100px;text-align:center;background-color:#0f4c5c">
       <div class="heading">
-        <h1>Appointment Details</h1>
+        <h1 style="padding:10px 20px">Make an Appointment</h1>
       </div>
       <div class="input-fields">
         <div class="personal-info">
@@ -74,9 +75,9 @@ if(isset($_POST['submit'])){
             <li>
               <h2>Personal Details</h2>
             </li>
-            <li><input name="username" type="text" placeholder="Full Name" required></li>
-            <li><input name="address" type="text" placeholder="Address" required></li>
-            <li><input name="phone" type="text" placeholder="Phone Number" required></li>
+            <li><input style="padding:10px 20px; margin-top:10px" name="username" type="text" placeholder="Full Name" required></li>
+            <li><input style="padding:10px 20px; margin-top:10px" name="address" type="text" placeholder="Address" required></li>
+            <li><input style="padding:10px 20px; margin-top:10px" name="phone" type="text" placeholder="Phone Number" required></li>
           </ul>
         </div>
         <div class="car-info">
@@ -84,8 +85,8 @@ if(isset($_POST['submit'])){
             <li>
               <h2>Car Details</h2>
             </li>
-            <li><input name='licenseNumber' type="text" placeholder="Car License Number" required></li>
-            <li><input name='engineNumber' type="text" placeholder="Car Engine Number" required></li>
+            <li><input style="padding:10px 20px; margin-top:10px"  name='licenseNumber' type="text" placeholder="Car License Number" required></li>
+            <li><input style="padding:10px 20px" name='engineNumber' type="text" placeholder="Car Engine Number" required></li>
           </ul>
         </div>
         <div class="booking-info">
@@ -93,9 +94,10 @@ if(isset($_POST['submit'])){
             <li>
               <h2>Booking Info</h2>
             </li>
-            <li><input type="date" name="date" id="" required></li>
+            <li><input style="padding:10px 20px" type="date" name="date" id="" required></li>
             <li>
-              <select name="mechanic" id="" required>
+            <h2 style="margin:20px 10px">Pick your Mechanic</h2>
+              <select style="padding:10px 20px; font-size:15px; margin-bottom:30px" name="mechanic" id="" required>
                 <?php
                 while ($names = mysqli_fetch_array(
                   $data,MYSQLI_ASSOC)){
@@ -113,11 +115,9 @@ if(isset($_POST['submit'])){
       </div>
       <div class="submit">
         <form action="">
-          <button type='submit' name='submit'>Submit</button>
+          <button style="padding:10px 20px;margin-right:30px;font-size:20px" type='submit' name='submit'>Submit</button>
         </form>
-        <form action="">
-          <button>Clear Form</button>
-        </form>
+        <p style="padding:10px 20px;margin-right:30px;font-size:20px;color:red" type='submit' name = "alert"><?php echo $mssg?></p>
       </div>
     </div>
   </form>
