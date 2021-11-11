@@ -14,8 +14,10 @@ if(isset($_POST['submit'])){
   $engine = $_POST['engineNumber'];
   $date = $_POST['date'];
 
-  $mechname = $_POST['mechanic'];
+  $names = "SELECT * FROM `mechanic_list`";
+  $data = mysqli_query($conn,$names) ;
   
+  $mechname = $_POST['mechanic'];
   if ($user!="" && $license!="" && $engine != "" && $date != "" && $mechname != "") {
     # code...
 
@@ -32,6 +34,7 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,53 +42,72 @@ if(isset($_POST['submit'])){
   <title>Make Appointment</title>
   <link rel="stylesheet" href="./Assets/css/appointment.css">
 </head>
+
 <body>
-<form action="#" method = "POST">
-  <div class="container" >
-    <div class="heading">
-      <h1>Appointment Details</h1>
-    </div>
-    <div class="input-fields">
-      <div class="personal-info">
-        <ul>
-          <li><h2>Personal Details</h2></li>
-          <li><input name = "username"type="text" placeholder="Full Name" required></li>
-          <li><input name = "address" type="text" placeholder="Address" required></li>
-          <li><input name = "phone" type="text" placeholder="Phone Number" required></li>
-        </ul>
+  <form action="#" method="POST">
+    <div class="container">
+      <div class="heading">
+        <h1>Appointment Details</h1>
       </div>
-      <div class="car-info">
-        <ul>
-          <li><h2>Car Details</h2></li>
-          <li><input name = 'licenseNumber'  type="text" placeholder="Car License Number" required></li>
-          <li><input name = 'engineNumber' type="text" placeholder="Car Engine Number" required></li>
-        </ul>
+      <div class="input-fields">
+        <div class="personal-info">
+          <ul>
+            <li>
+              <h2>Personal Details</h2>
+            </li>
+            <li><input name="username" type="text" placeholder="Full Name" required></li>
+            <li><input name="address" type="text" placeholder="Address" required></li>
+            <li><input name="phone" type="text" placeholder="Phone Number" required></li>
+          </ul>
+        </div>
+        <div class="car-info">
+          <ul>
+            <li>
+              <h2>Car Details</h2>
+            </li>
+            <li><input name='licenseNumber' type="text" placeholder="Car License Number" required></li>
+            <li><input name='engineNumber' type="text" placeholder="Car Engine Number" required></li>
+          </ul>
+        </div>
+        <div class="booking-info">
+          <ul>
+            <li>
+              <h2>Booking Info</h2>
+            </li>
+            <li><input type="date" name="date" id="" required></li>
+            <li>
+              <select name="mechanic" id="" required>
+                <?php
+                while ($names = mysqli_fetch_assoc($data)) {
+                  # code...
+
+                  echo "
+                  <option>".$names['name']."</option>
+                  <option value = ".$names['name'].">Mr z</option>
+                  <option value = ".$names['name'].">Someone</option>
+                  <option value = ".$names['name'].">Mr p</option>
+                  
+                  ";
+                }
+                
+                ?>
+
+              </select>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="booking-info">
-        <ul>
-          <li><h2>Booking Info</h2></li>
-          <li><input type="date" name="date" id="" required></li>
-          <li>
-          <select name="mechanic" id="" required>
-            <option value="Mr X"></option>
-            <option value="Mr Y">Mr y</option>
-            <option value="Mr Z">Mr z</option>
-            <option value="Mr P">Mr p</option>
-          </select>
-        </li>
-        </ul>
+      <div class="submit">
+        <form action="">
+          <button type='submit' name='submit'>Submit</button>
+        </form>
+        <form action="">
+          <button>Clear Form</button>
+        </form>
       </div>
     </div>
-    <div class="submit" >
-      <form action="" >
-        <button type = 'submit' name = 'submit' >Submit</button>
-      </form>
-      <form action="">
-        <button>Clear Form</button>
-      </form>
-    </div>
-  </div>
-</form>
+  </form>
 
 </body>
+
 </html>
