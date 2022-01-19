@@ -134,7 +134,7 @@
     <footer>
       <div class="fo-container">
         <div class="fo-content">
-          <p class="para">Copyright © BtoCode 2021 </p>
+          <p class="para">Copyright © BtoCode 2022 </p>
         </div>
       </div>
 
